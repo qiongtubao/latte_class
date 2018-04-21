@@ -10,26 +10,25 @@ export default class Queue {
     constructor(size) {
         this._size = Math.max(+size | 0, 1);
         this.slots = [];
-        for(var i = 0; i < this._size; i++) {
+        for (var i = 0; i < this._size; i++) {
             this.slots.push([]);
         }
     }
     /**
-        @desc 获得队列里对象个数
-        @method size
-        @return {Int} total
-        @async
-        @example
-
-            var Queue =  require("latte_class").Queue;
-            console.log(Queue);
-            var queue = new Queue();
-            log(queue.size()); //0
-    */
+     *  @desc 获得队列里对象个数
+     *  @method size
+     *  @return {Int} total
+     *  @async
+     *  @example
+     *      var Queue =  require("latte_class").Queue;
+     *      console.log(Queue);
+     *      var queue = new Queue();
+     *      log(queue.size()); //0 
+     */
     size() {
-        if(this.total == null) {
+        if (this.total == null) {
             this.total = 0;
-            for(var i = 0 ; i< this._size; i++) {
+            for (var i = 0; i < this._size; i++) {
                 this.total += this.slots[i].length;
             }
         }
@@ -51,14 +50,14 @@ export default class Queue {
             log(q.dequeue());//3
             log(q.dequeue());//2
     */
-    enqueue(obj:any, priority?:number) {
+    enqueue(obj: any, priority?: number) {
         let priorityOrig;
         priority = priority && +priority | 0 || 0;
         this.total = null;
-        if(priority) {
+        if (priority) {
             priorityOrig = priority;
-            if(priority < 0 || priority >= this._size) {
-                priority = (this._size -1);
+            if (priority < 0 || priority >= this._size) {
+                priority = (this._size - 1);
             }
         }
         this.slots[priority].push(obj);
@@ -68,7 +67,7 @@ export default class Queue {
         @method dequeue
         @return {any} obj
         @example
-            var Queue = require("latte_lib").queue;
+            var Queue = require("latte_class").queue;
             var q = new Queue();
             var one = q.dequeue();
             log(one); //null
@@ -80,8 +79,8 @@ export default class Queue {
     dequeue() {
         let obj = null, sl = this.slots.length;
         this.total = null;
-        for(var i = 0; i < sl; i++) {
-            if(this.slots[i].length > 0) {
+        for (var i = 0; i < sl; i++) {
+            if (this.slots[i].length > 0) {
                 obj = this.slots[i].shift();
                 break;
             }

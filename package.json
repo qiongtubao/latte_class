@@ -1,8 +1,11 @@
 {
 	"name": "latte_class",
-	"version":"0.0.1",
+	"version": "0.0.1",
 	"description": "latte_class",
-	"keywords": ["latte", "latte_class"],
+	"keywords": [
+		"latte",
+		"latte_class"
+	],
 	"author": "qiongtubao",
 	"main": "lib/index.js",
 	"repository": {
@@ -11,8 +14,8 @@
 	},
 	"dependencies": {
 		"latte_lib": "*"
-    },
-    "devDependencies": {
-		
-    }
+	},
+	"devDependencies": {
+		"chai": "*"
+	}
 }

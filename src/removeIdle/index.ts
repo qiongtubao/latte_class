@@ -21,8 +21,8 @@ export default class RemoveIdle {
 	removeIdleScheduled: boolean;
 	removeIdleTimer: number;
 	removeConditions: Function;
-	ensureMinimum: Function;
-	dispense: Function;
+	ensureMinimum: Function; //清理完成之后 执行此方法 比如连接池释放掉 需要确保最低连接数 可能会创建新的连接对象
+	dispense: Function; //当创建或者有对象归还时,重新发放对象事件
 	constructor(config) {
 		this.reapIntervalMillis = config.reapIntervalMillis || 1000;
 		this.idleTimeoutMillis = config.idleTimeoutMillis || 10000;
@@ -35,15 +35,16 @@ export default class RemoveIdle {
 		this._destroy = config.destroy || function () { };
 		this._create = config.create;
 		this.log = config.log || function () { };
-		this.removeConditions = config.removeConditions || function () {return true;}
-		this.ensureMinimum = config.ensureMinimum || function () {}
-		this.dispense = config.dispense || function() {}
+		this.removeConditions = config.removeConditions || function () { return true; }
+		this.ensureMinimum = config.ensureMinimum || function () { }
+		this.dispense = config.dispense || function () { }
 	};
 	/**
-	 	时间表删除空闲对象
+		//不建议使用availableObjects对象push  这里只是举例子
+	 	重新启动扫描空闲对象以及定时删除功能
 		@method scheduledRemoveIdle
 		@example
-			var RemoveIdle = require("latte_lib").removeIdle;
+			var RemoveIdle = require("latte_class").removeIdle;
 			var r = new RemoveIdle({
 						idleTimeoutMillis: 1000
 			});
@@ -69,11 +70,12 @@ export default class RemoveIdle {
 		}
 	}
 	/**
-	    删除空闲
+		强制扫描一遍空闲对象并删除  
+		@async
 		@method removeIdle
 		@example
 
-			var RemoveIdle = require("latte_lib").removeIdle;
+			var RemoveIdle = require("latte_class").removeIdle;
 			var r = new RemoveIdle({
 						idleTimeoutMillis: 1000
 			});
@@ -110,12 +112,13 @@ export default class RemoveIdle {
 		}
 	}
 	/**
+	 * @desc 释放一个对象
 		@method destroy
 		@param {any} obj
 		@example
-			var RemoveIdle = require("latte_lib").removeIdle;
+			var RemoveIdle = require("latte_class").removeIdle;
 			var r = new RemoveIdle({
-						idleTimeoutMillis: 1000
+						idleTimeoutMillis: 2000
 			});
 			setTimeout(function(){
 					r.availableObjects.push({
@@ -125,7 +128,7 @@ export default class RemoveIdle {
 					setTimeout(function() {
 							log("one", r.size());//one,1
 							r.destroy(r.availableObjects[0].obj);
-							log("two",r.size());//two,1
+							log("two",r.size());//two,0
 					}, 2000);
 			}, 2000);
 	*/
@@ -135,20 +138,11 @@ export default class RemoveIdle {
 		this.ensureMinimum();
 	}
 	/**
+	 * @desc 内部清理所有值为obj 
 		@method getIdle
 		@param {any} obj
-		@example
-			var RemoveIdle = require("latte_lib").removeIdle;
-			var r = new RemoveIdle({
-						idleTimeoutMillis: 1000
-			});
-			var obj = "1";
-			r.release(obj);
-			log(r.size());//1
-			r.getIdle(obj);
-			log(r.size());//0
 	*/
-	getIdle(obj) {
+	private getIdle(obj) {
 		this.availableObjects = this.availableObjects.filter(function (objWithTimeout) {
 			return (objWithTimeout.obj !== obj);
 		});
@@ -157,7 +151,7 @@ export default class RemoveIdle {
 		@method size
 		@return {number}
 		@example
-			var RemoveIdle = require("latte_lib").removeIdle;
+			var RemoveIdle = require("latte_class").removeIdle;
 			var r = new RemoveIdle({
 						idleTimeoutMillis: 1000
 			});
@@ -167,11 +161,12 @@ export default class RemoveIdle {
 		return this.availableObjects.length;
 	}
 	/**
+	 * @desc 更新
 		@method update
 		@param {Object} obj
 		@example
 
-			var RemoveIdle = require("latte_lib").removeIdle;
+			var RemoveIdle = require("latte_class").removeIdle;
 			var r = new RemoveIdle({
 						idleTimeoutMillis: 1000
 			});
@@ -191,7 +186,7 @@ export default class RemoveIdle {
 										log("three", r.availableObjects.length);//three,0
 							},1000);
 					}, 2000);
-			}, 2000);
+			}, 1000);
 
 	*/
 	update(obj) {
@@ -202,12 +197,12 @@ export default class RemoveIdle {
 		}
 	}
 	/**
-		add obj in availableObjects
+		@desc 添加一个对象
 		@method release
 		@param {Object} obj
 		@public
 		@example
-			var RemoveIdle = require("latte_lib").removeIdle;
+			var RemoveIdle = require("latte_class").removeIdle;
 			var r = new RemoveIdle({
 				idleTimeoutMillis: 1000
 			});
@@ -217,7 +212,7 @@ export default class RemoveIdle {
 				log(r.size());//0
 			}, 1000);
 	*/
-	relese(obj) {
+	release(obj) {
 		if (this.availableObjects.some(function (objWithTimeout) {
 			if (objWithTimeout.obj === obj) {
 				//续时
@@ -239,10 +234,11 @@ export default class RemoveIdle {
 		this.scheduleRemoveIdle();
 	}
 	/**
+	 * @desc  释放所有对象
 		@method destroyAllNow
 		@param {Function} callback
 		@example
-			var RemoveIdle = require("latte_lib").removeIdle;
+			var RemoveIdle = require("latte_class").removeIdle;
 			var r = new RemoveIdle({
 						idleTimeoutMillis: 1000
 			});
@@ -269,9 +265,7 @@ export default class RemoveIdle {
 		}
 		this.removeIdleScheduled = false;
 		clearTimeout(this.removeIdleTimer);
-		if (callback) {
-			callback();
-		}
+		callback && callback();
 	}
 }
 
