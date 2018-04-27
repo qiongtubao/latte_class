@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>RemoveIdle.RemoveIdle - Project</title>
+  
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-smart" _assetsPath="../assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="https://github.com/qiongtubao/latte_class">
+            <img alt="Project" src="../assets/css/logo.png" title="Project">
+                Project
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/qiongtubao/latte_class">Home</a>
+                    </li>
+                    <li><a href="https://github.com/qiongtubao/latte_class">Document</a>
+                    </li>
+                    <li><a href="https://github.com/qiongtubao/latte_class">About</a>
+                    </li>
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar">
+        <h3>Modules/Classes</h3>
+            <div id="api-tabview-filter">
+                <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+            </div>
+            <dl id="sidebar_list">
+                    <dt>
+                        <span class="glyphicon glyphicon-minus"></span>
+                        <a href="../modules/latte_class.html">latte_class</a>
+                    </dt>
+                    <dd>
+                        <ul>
+                           <li>
+                               <a href="../classes/FileObject.Config.html">FileObject.Config</a>
+                               <ul>
+                               </ul>
+                           </li>
+                           <li>
+                               <a href="../classes/FileObject.FileObject.html">FileObject.FileObject</a>
+                               <ul>
+                               </ul>
+                           </li>
+                           <li>
+                               <a href="../classes/Queue.Queue.html">Queue.Queue</a>
+                               <ul>
+                               </ul>
+                           </li>
+                           <li>
+                               <a href="../classes/RemoveIdle.RemoveIdle.html">RemoveIdle.RemoveIdle</a>
+                               <ul>
+                               </ul>
+                           </li>
+                        </ul>
+                    </dd>
+            </dl>
+    </div>
+           <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                    <div class="page-header">
+                        <h1>RemoveIdle.RemoveIdle <small>Class</small></h1>
+                    </div>
+                     <div class="well well-small sign-left3">
+                          <div class="stdoc-code"></div>
+                     </div>
+                    
+                    <div class="well well-small sign-left2 container-fluid" id="classesItems">
+                        <div class="row">
+                        
+                            <div class="index-section methods col-sm-4">
+                                <h3>Methods</h3>
+                                <ul class="index-list methods">
+                                        <li class="index-item method">
+                                            <a href="#" data-tabid="#method" data-anchor="#method_destroy" data-tablink="destroy">destroy</a>
+                    
+                                        </li>
+                                        <li class="index-item method">
+                                            <a href="#" data-tabid="#method" data-anchor="#method_destroyAllNow" data-tablink="destroyAllNow">destroyAllNow</a>
+                    
+                                        </li>
+                                        <li class="index-item method">
+                                            <a href="#" data-tabid="#method" data-anchor="#method_getIdle" data-tablink="getIdle">getIdle</a>
+                    
+                                        </li>
+                                        <li class="index-item method public">
+                                            <a href="#" data-tabid="#method" data-anchor="#method_release" data-tablink="release">release</a>
+                    
+                                        </li>
+                                        <li class="index-item method">
+                                            <a href="#" data-tabid="#method" data-anchor="#method_removeIdle" data-tablink="removeIdle">removeIdle</a>
+                    
+                                        </li>
+                                        <li class="index-item method">
+                                            <a href="#" data-tabid="#method" data-anchor="#method_scheduledRemoveIdle" data-tablink="scheduledRemoveIdle">scheduledRemoveIdle</a>
+                    
+                                        </li>
+                                        <li class="index-item method">
+                                            <a href="#" data-tabid="#method" data-anchor="#method_size" data-tablink="size">size</a>
+                    
+                                        </li>
+                                        <li class="index-item method">
+                                            <a href="#" data-tabid="#method" data-anchor="#method_update" data-tablink="update">update</a>
+                    
+                                        </li>
+                                </ul>
+                            </div>
+                        
+                            <div class="index-section properties col-sm-4">
+                                <h3>Properties</h3>
+                            </div>
+                        
+                            <div class="index-section events col-sm-4">
+                                <h3>Events</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <ul id="itemTab" class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#class">Detail</a></li>
+                                <li><a data-toggle="tab" href="#method">Methods</a></li>
+                        </ul>
+                    
+                        <div class="tab-content">
+                            <div id="class" class="tab-pane active">
+                                <div class="well well-small classDetail sign-left1">
+                    
+                    
+                                    <div class="foundat">
+                                        Defined in: <a href="../files/src_removeIdle_index.ts.html#l5"><code>src&#x2F;removeIdle&#x2F;index.ts:5</code></a>
+                                    </div>
+                    
+                                        Module: <a href="../modules/latte_class.html">latte_class</a>
+                    
+                            </div>
+                    
+                            </div>
+                    
+                                <div id="method" class="tab-pane">
+                                    <h2 class="off-left">Methods</h2>
+                    
+                                        <div id="method_destroy" class="method item">
+                                            <h3 class="name">destroy</h3>
+                                            <code>
+                                            destroy
+                                                <div class="args">
+                                                    <span class="paren">(</span><ul class="args-list inline commas">
+                                                        <li class="arg">
+                                                                obj
+                                                        </li>
+                                                    </ul><span class="paren">)</span>
+                                                </div>
+                                            </code>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            <div class="meta">
+                                                        <p>
+                                                        Defined in
+                                                <a href="../files/src_removeIdle_index.ts.html#l114"><code>src&#x2F;removeIdle&#x2F;index.ts:114</code></a>
+                                                </p>
+                                        
+                                        
+                                        
+                                            </div>
+                                        
+                                            <div class="description well well-small sign-left3">
+                                                <div class="stdoc-code"></div>
+                                            </div>
+                                        
+                                                <div class="params">
+                                                    <h4>Parameters:</h4>
+                                        
+                                                    <table class="table table-bordered">
+                                                    <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                                        <tr class="param">
+                                                               <td> <code class="param-name">obj</code>
+                                                               <td> <span class="type">Any</span>
+                                                               <td>
+                                        
+                                                            </td>
+                                                            <td><div class="param-description">
+                                                                 
+                                                            </div>
+                                        
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        
+                                        
+                                                <div class="example">
+                                                    <h4>Example:</h4>
+                                                    <ul class="nav nav-tabs example-list">
+                                                    </ul>
+                                        
+                                                    <div class="example-content ">
+                                                        <div class="stdoc-code"><pre class="code prettyprint"><code>        var RemoveIdle = require("latte_class").removeIdle;
+                                                var r = new RemoveIdle({
+                                                            idleTimeoutMillis: 2000
+                                                });
+                                                setTimeout(function(){
+                                                        r.availableObjects.push({
+                                                                timeout: Date.now()-1,
+                                                                obj: "1"
+                                                        });
+                                                        setTimeout(function() {
+                                                                log("one", r.size());//one,1
+                                                                r.destroy(r.availableObjects[0].obj);
+                                                                log("two",r.size());//two,0
+                                                        }, 2000);
+                                                }, 2000);</code></pre>
+                                        </div>
+                                                    </div>
+                                        
+                                                     <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
+                                                    <button class="btn btn-info btn-editDemo" type="button">edit code</button>
+                                                </div>
+                                        </div>
+                                        <div id="method_destroyAllNow" class="method item">
+                                            <h3 class="name">destroyAllNow</h3>
+                                            <code>
+                                            destroyAllNow
+                                                <div class="args">
+                                                    <span class="paren">(</span><ul class="args-list inline commas">
+                                                        <li class="arg">
+                                                                callback
+                                                        </li>
+                                                    </ul><span class="paren">)</span>
+                                                </div>
+                                            </code>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            <div class="meta">
+                                                        <p>
+                                                        Defined in
+                                                <a href="../files/src_removeIdle_index.ts.html#l236"><code>src&#x2F;removeIdle&#x2F;index.ts:236</code></a>
+                                                </p>
+                                        
+                                        
+                                        
+                                            </div>
+                                        
+                                            <div class="description well well-small sign-left3">
+                                                <div class="stdoc-code"></div>
+                                            </div>
+                                        
+                                                <div class="params">
+                                                    <h4>Parameters:</h4>
+                                        
+                                                    <table class="table table-bordered">
+                                                    <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                                        <tr class="param">
+                                                               <td> <code class="param-name">callback</code>
+                                                               <td> <span class="type">Function</span>
+                                                               <td>
+                                        
+                                                            </td>
+                                                            <td><div class="param-description">
+                                                                 
+                                                            </div>
+                                        
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        
+                                        
+                                                <div class="example">
+                                                    <h4>Example:</h4>
+                                                    <ul class="nav nav-tabs example-list">
+                                                    </ul>
+                                        
+                                                    <div class="example-content ">
+                                                        <div class="stdoc-code"><pre class="code prettyprint"><code>        var RemoveIdle = require("latte_class").removeIdle;
+                                                var r = new RemoveIdle({
+                                                            idleTimeoutMillis: 1000
+                                                });
+                                        
+                                                r.availableObjects.push({
+                                                        timeout: Date.now()+ 60 * 60 * 1000,
+                                                        obj: "1"
+                                                });
+                                                setTimeout(function() {
+                                                        log("one", r.size());//one,1
+                                                        r.destroyAllNow();
+                                                        log("two",r.size());//two,0
+                                                }, 2000);
+                                        </code></pre>
+                                        </div>
+                                                    </div>
+                                        
+                                                     <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
+                                                    <button class="btn btn-info btn-editDemo" type="button">edit code</button>
+                                                </div>
+                                        </div>
+                                        <div id="method_getIdle" class="method item">
+                                            <h3 class="name">getIdle</h3>
+                                            <code>
+                                            getIdle
+                                                <div class="args">
+                                                    <span class="paren">(</span><ul class="args-list inline commas">
+                                                        <li class="arg">
+                                                                obj
+                                                        </li>
+                                                    </ul><span class="paren">)</span>
+                                                </div>
+                                            </code>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            <div class="meta">
+                                                        <p>
+                                                        Defined in
+                                                <a href="../files/src_removeIdle_index.ts.html#l140"><code>src&#x2F;removeIdle&#x2F;index.ts:140</code></a>
+                                                </p>
+                                        
+                                        
+                                        
+                                            </div>
+                                        
+                                            <div class="description well well-small sign-left3">
+                                                <div class="stdoc-code"></div>
+                                            </div>
+                                        
+                                                <div class="params">
+                                                    <h4>Parameters:</h4>
+                                        
+                                                    <table class="table table-bordered">
+                                                    <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                                        <tr class="param">
+                                                               <td> <code class="param-name">obj</code>
+                                                               <td> <span class="type">Any</span>
+                                                               <td>
+                                        
+                                                            </td>
+                                                            <td><div class="param-description">
+                                                                 
+                                                            </div>
+                                        
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        
+                                        
+                                        </div>
+                                        <div id="method_release" class="method item public">
+                                            <h3 class="name">release</h3>
+                                            <code>
+                                            release
+                                                <div class="args">
+                                                    <span class="paren">(</span><ul class="args-list inline commas">
+                                                        <li class="arg">
+                                                                obj
+                                                        </li>
+                                                    </ul><span class="paren">)</span>
+                                                </div>
+                                            </code>
+                                        
+                                        
+                                        
+                                                <span class="flag public">public</span>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            <div class="meta">
+                                                        <p>
+                                                        Defined in
+                                                <a href="../files/src_removeIdle_index.ts.html#l199"><code>src&#x2F;removeIdle&#x2F;index.ts:199</code></a>
+                                                </p>
+                                        
+                                        
+                                        
+                                            </div>
+                                        
+                                            <div class="description well well-small sign-left3">
+                                                <div class="stdoc-code"></div>
+                                            </div>
+                                        
+                                                <div class="params">
+                                                    <h4>Parameters:</h4>
+                                        
+                                                    <table class="table table-bordered">
+                                                    <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                                        <tr class="param">
+                                                               <td> <code class="param-name">obj</code>
+                                                               <td> <span class="type">Object</span>
+                                                               <td>
+                                        
+                                                            </td>
+                                                            <td><div class="param-description">
+                                                                 
+                                                            </div>
+                                        
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        
+                                        
+                                                <div class="example">
+                                                    <h4>Example:</h4>
+                                                    <ul class="nav nav-tabs example-list">
+                                                    </ul>
+                                        
+                                                    <div class="example-content ">
+                                                        <div class="stdoc-code"><pre class="code prettyprint"><code>var RemoveIdle = require("latte_class").removeIdle;
+                                        var r = new RemoveIdle({
+                                            idleTimeoutMillis: 1000
+                                        });
+                                        r.release("1");
+                                        log(r.size());//1
+                                        setTimeout(function(){
+                                            log(r.size());//0
+                                        }, 1000);</code></pre>
+                                        </div>
+                                                    </div>
+                                        
+                                                     <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
+                                                    <button class="btn btn-info btn-editDemo" type="button">edit code</button>
+                                                </div>
+                                        </div>
+                                        <div id="method_removeIdle" class="method item">
+                                            <h3 class="name">removeIdle</h3>
+                                            <code>
+                                            removeIdle
+                                                <span class="paren">()</span>
+                                            </code>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                                <span class="flag async">async</span>
+                                        
+                                            <div class="meta">
+                                                        <p>
+                                                        Defined in
+                                                <a href="../files/src_removeIdle_index.ts.html#l72"><code>src&#x2F;removeIdle&#x2F;index.ts:72</code></a>
+                                                </p>
+                                        
+                                        
+                                        
+                                            </div>
+                                        
+                                            <div class="description well well-small sign-left3">
+                                                <div class="stdoc-code"><p>强制扫描一遍空闲对象并删除</p>
+                                        </div>
+                                            </div>
+                                        
+                                        
+                                        
+                                                <div class="example">
+                                                    <h4>Example:</h4>
+                                                    <ul class="nav nav-tabs example-list">
+                                                    </ul>
+                                        
+                                                    <div class="example-content ">
+                                                        <div class="stdoc-code"><pre class="code prettyprint"><code>var RemoveIdle = require("latte_class").removeIdle;
+                                        var r = new RemoveIdle({
+                                                    idleTimeoutMillis: 1000
+                                        });
+                                        //sleep 2000ms
+                                        //when r.availableObjects.length == 0  then close autoClean;
+                                        setTimeout(function(){
+                                                r.availableObjects.push({
+                                                        timeout: Date.now()-1,
+                                                        obj: "1"
+                                                });
+                                                setTimeout(function() {
+                                                        log("one", r.size());//one,1
+                                                        r.removeIdle();
+                                                        log("two",r.size());//two,0
+                                                }, 2000);
+                                        }, 2000);
+                                        </code></pre>
+                                        </div>
+                                                    </div>
+                                        
+                                                     <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
+                                                    <button class="btn btn-info btn-editDemo" type="button">edit code</button>
+                                                </div>
+                                        </div>
+                                        <div id="method_scheduledRemoveIdle" class="method item">
+                                            <h3 class="name">scheduledRemoveIdle</h3>
+                                            <code>
+                                            scheduledRemoveIdle
+                                                <span class="paren">()</span>
+                                            </code>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            <div class="meta">
+                                                        <p>
+                                                        Defined in
+                                                <a href="../files/src_removeIdle_index.ts.html#l42"><code>src&#x2F;removeIdle&#x2F;index.ts:42</code></a>
+                                                </p>
+                                        
+                                        
+                                        
+                                            </div>
+                                        
+                                            <div class="description well well-small sign-left3">
+                                                <div class="stdoc-code"><p>//不建议使用availableObjects对象push  这里只是举例子
+                                        重新启动扫描空闲对象以及定时删除功能</p>
+                                        </div>
+                                            </div>
+                                        
+                                        
+                                        
+                                                <div class="example">
+                                                    <h4>Example:</h4>
+                                                    <ul class="nav nav-tabs example-list">
+                                                    </ul>
+                                        
+                                                    <div class="example-content ">
+                                                        <div class="stdoc-code"><pre class="code prettyprint"><code>var RemoveIdle = require("latte_class").removeIdle;
+                                        var r = new RemoveIdle({
+                                                    idleTimeoutMillis: 1000
+                                        });
+                                        setTimeout(function(){
+                                                r.availableObjects.push({
+                                                        timeout: Date.now()-1,
+                                                        obj: "1"
+                                                });
+                                                setTimeout(function() {
+                                                        log("one", r.size());//one,1
+                                                        r.scheduleRemoveIdle();
+                                                        log("two",r.size());//two,1
+                                                        setTimeout(function(){
+                                                                    log("three", r.size());//three,0
+                                                        },1000);
+                                                }, 2000);
+                                        }, 2000);</code></pre>
+                                        </div>
+                                                    </div>
+                                        
+                                                     <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
+                                                    <button class="btn btn-info btn-editDemo" type="button">edit code</button>
+                                                </div>
+                                        </div>
+                                        <div id="method_size" class="method item">
+                                            <h3 class="name">size</h3>
+                                            <code>
+                                            size
+                                                <span class="paren">()</span>
+                                            </code>
+                                        
+                                                <span class="returns-inline">
+                                                    <span class="type">Number</span>
+                                                </span>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            <div class="meta">
+                                                        <p>
+                                                        Defined in
+                                                <a href="../files/src_removeIdle_index.ts.html#l150"><code>src&#x2F;removeIdle&#x2F;index.ts:150</code></a>
+                                                </p>
+                                        
+                                        
+                                        
+                                            </div>
+                                        
+                                            <div class="description well well-small sign-left3">
+                                                <div class="stdoc-code"></div>
+                                            </div>
+                                        
+                                        
+                                                <div class="returns">
+                                                    <h4>Returns:</h4>
+                                        
+                                                    <div class="returns-description">
+                                                                <span class="type">Number</span>:
+                                                    </div>
+                                                </div>
+                                        
+                                                <div class="example">
+                                                    <h4>Example:</h4>
+                                                    <ul class="nav nav-tabs example-list">
+                                                    </ul>
+                                        
+                                                    <div class="example-content ">
+                                                        <div class="stdoc-code"><pre class="code prettyprint"><code>var RemoveIdle = require("latte_class").removeIdle;
+                                        var r = new RemoveIdle({
+                                                    idleTimeoutMillis: 1000
+                                        });
+                                        log(r.size());//0</code></pre>
+                                        </div>
+                                                    </div>
+                                        
+                                                     <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
+                                                    <button class="btn btn-info btn-editDemo" type="button">edit code</button>
+                                                </div>
+                                        </div>
+                                        <div id="method_update" class="method item">
+                                            <h3 class="name">update</h3>
+                                            <code>
+                                            update
+                                                <div class="args">
+                                                    <span class="paren">(</span><ul class="args-list inline commas">
+                                                        <li class="arg">
+                                                                obj
+                                                        </li>
+                                                    </ul><span class="paren">)</span>
+                                                </div>
+                                            </code>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            <div class="meta">
+                                                        <p>
+                                                        Defined in
+                                                <a href="../files/src_removeIdle_index.ts.html#l163"><code>src&#x2F;removeIdle&#x2F;index.ts:163</code></a>
+                                                </p>
+                                        
+                                        
+                                        
+                                            </div>
+                                        
+                                            <div class="description well well-small sign-left3">
+                                                <div class="stdoc-code"></div>
+                                            </div>
+                                        
+                                                <div class="params">
+                                                    <h4>Parameters:</h4>
+                                        
+                                                    <table class="table table-bordered">
+                                                    <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                                        <tr class="param">
+                                                               <td> <code class="param-name">obj</code>
+                                                               <td> <span class="type">Object</span>
+                                                               <td>
+                                        
+                                                            </td>
+                                                            <td><div class="param-description">
+                                                                 
+                                                            </div>
+                                        
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        
+                                        
+                                                <div class="example">
+                                                    <h4>Example:</h4>
+                                                    <ul class="nav nav-tabs example-list">
+                                                    </ul>
+                                        
+                                                    <div class="example-content ">
+                                                        <div class="stdoc-code"><pre class="code prettyprint"><code>        var RemoveIdle = require("latte_class").removeIdle;
+                                                var r = new RemoveIdle({
+                                                            idleTimeoutMillis: 1000
+                                                });
+                                                var obj = {
+                                                        timeout: Date.now()-1,
+                                                        obj: "1"
+                                                };
+                                                setTimeout(function(){
+                                        
+                                                        r.availableObjects.push(obj);
+                                                        setTimeout(function() {
+                                                                log("one", r.size());//one,1
+                                                                r.update(obj.obj);
+                                                                r.removeIdle();
+                                                                log("two",r.size());//two,1
+                                                                setTimeout(function(){
+                                                                            log("three", r.availableObjects.length);//three,0
+                                                                },1000);
+                                                        }, 2000);
+                                                }, 1000);
+                                        </code></pre>
+                                        </div>
+                                                    </div>
+                                        
+                                                     <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
+                                                    <button class="btn btn-info btn-editDemo" type="button">edit code</button>
+                                                </div>
+                                        </div>
+                                </div>
+                    
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<a id="gotoTop" class='well well-small' href='#'>
+    Top
+</a>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/doc.js"></script>
+</body>
+</html>

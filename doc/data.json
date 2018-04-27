@@ -1,0 +1,669 @@
+{
+    "project": {
+        "name": "Project",
+        "description": "<h2>latte_class</h2><p>javascript Document.</p>",
+        "version": "{{0.0.1}}",
+        "url": "https://github.com/qiongtubao/latte_class",
+        "logo": "",
+        "navs": [
+            {
+                "name": "Home",
+                "url": "https://github.com/qiongtubao/latte_class"
+            },
+            {
+                "name": "Document",
+                "url": "https://github.com/qiongtubao/latte_class"
+            },
+            {
+                "name": "About",
+                "url": "https://github.com/qiongtubao/latte_class"
+            }
+        ]
+    },
+    "files": {
+        "src/fileObject/index.ts": {
+            "name": "src/fileObject/index.ts",
+            "modules": {
+                "latte_class": 1
+            },
+            "classes": {
+                "FileObject.Config": 1,
+                "FileObject.FileObject": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "FileObject": 1
+            }
+        },
+        "src/queue/index.ts": {
+            "name": "src/queue/index.ts",
+            "modules": {},
+            "classes": {
+                "Queue.Queue": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Queue": 1
+            }
+        },
+        "src/removeIdle/index.ts": {
+            "name": "src/removeIdle/index.ts",
+            "modules": {},
+            "classes": {
+                "RemoveIdle.RemoveIdle": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "RemoveIdle": 1
+            }
+        }
+    },
+    "modules": {
+        "latte_class": {
+            "name": "latte_class",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "FileObject.Config": 1,
+                "FileObject.FileObject": 1,
+                "Queue.Queue": 1,
+                "RemoveIdle.RemoveIdle": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "FileObject": 1,
+                "Queue": 1,
+                "RemoveIdle": 1
+            },
+            "tag": "module",
+            "file": "src/removeIdle/index.ts",
+            "line": 5
+        }
+    },
+    "classes": {
+        "FileObject.Config": {
+            "name": "FileObject.Config",
+            "shortname": "Config",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "latte_class",
+            "namespace": "FileObject",
+            "file": "src/fileObject/index.ts",
+            "line": 8,
+            "desc": "FileObject的配置对象",
+            "interface": "",
+            "itemtype": "property"
+        },
+        "FileObject.FileObject": {
+            "name": "FileObject.FileObject",
+            "shortname": "FileObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "latte_class",
+            "namespace": "FileObject",
+            "file": "src/fileObject/index.ts",
+            "line": 37
+        },
+        "Queue.Queue": {
+            "name": "Queue.Queue",
+            "shortname": "Queue.Queue",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "latte_class",
+            "namespace": "Queue",
+            "file": "src/queue/index.ts",
+            "line": 1
+        },
+        "RemoveIdle.RemoveIdle": {
+            "name": "RemoveIdle.RemoveIdle",
+            "shortname": "RemoveIdle.RemoveIdle",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "latte_class",
+            "namespace": "RemoveIdle",
+            "file": "src/removeIdle/index.ts",
+            "line": 5
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 16,
+            "description": "字符串转对象方法",
+            "itemtype": "property",
+            "name": "parse",
+            "type": "Function",
+            "class": "FileObject.Config",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 21,
+            "description": "对象转字符串方法",
+            "itemtype": "property",
+            "name": "stringify",
+            "type": "Function",
+            "class": "FileObject.Config",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 26,
+            "description": "文件路径",
+            "itemtype": "property",
+            "name": "filePath",
+            "type": "String",
+            "class": "FileObject.Config",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 31,
+            "description": "默认数据",
+            "itemtype": "property",
+            "name": "defaultData",
+            "type": "Any",
+            "class": "FileObject.Config",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 41,
+            "description": "文件路径",
+            "itemtype": "property",
+            "name": "filePath",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 47,
+            "description": "字符串转对象方法",
+            "itemtype": "property",
+            "name": "parse",
+            "type": "Function",
+            "access": "private",
+            "tagname": "",
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 53,
+            "description": "对象转字符串方法",
+            "itemtype": "property",
+            "name": "stringify",
+            "type": "Function",
+            "access": "private",
+            "tagname": "",
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 59,
+            "description": "数据对象",
+            "itemtype": "property",
+            "name": "data",
+            "type": "Any",
+            "access": "private",
+            "tagname": "",
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 65,
+            "description": "数据对象",
+            "itemtype": "property",
+            "name": "defaultData",
+            "type": "Any",
+            "access": "private",
+            "tagname": "",
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 71,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": ""
+                }
+            ],
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 82,
+            "desc": "加载数据",
+            "example": [
+                "\n     //不建议使用\n     let fo = require('latte_class').fileObject.create({\n         filePath: \"./{{file-path}}\"\n     });\n     fo._load(\"./{{ccc}}\")\n     console.log(fo.filePath);\n"
+            ],
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 108,
+            "desc": "数据同步到文件内",
+            "example": [
+                "\n     //不建议使用\n     let fo = require('latte_class').fileObject.create({\n         filePath: \"./{{file-path}}\"\n     });\n     fo.data.set('a', 'b');\n     fo.data.set('c', 'b');\n     fo._save();"
+            ],
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 122,
+            "desc": "设置数据",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Any"
+                }
+            ],
+            "example": [
+                "\n     let fo = require('latte_class').fileObject.create({\n         filePath: \"./{{file-path}}\"\n     });\n     fo.set('a','b')"
+            ],
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 137,
+            "desc": "通过key获取数据",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "key",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "let fo = require('latte_class').fileObject.create({\n         filePath: \"./{{file-path}}\"\n     });\n     fo.get('a');",
+                "type": "Any"
+            },
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 150,
+            "desc": "关闭",
+            "itemtype": "method",
+            "name": "close",
+            "example": [
+                "\n     let fo = require('latte_class').fileObject.create({\n         filePath: \"./{{file-path}}\"\n     });\n     fo.close();"
+            ],
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/fileObject/index.ts",
+            "line": 162,
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "FileObject.Config"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "FileObject.fileObject"
+            },
+            "static": 1,
+            "example": [
+                "\n      let fo = require('latte_class').fileObject.create({\n          filePath: \"./{{file-path}}\"\n      });"
+            ],
+            "class": "FileObject.FileObject",
+            "module": "latte_class",
+            "namespace": "FileObject"
+        },
+        {
+            "file": "src/queue/index.ts",
+            "line": 10,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "size",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Queue.Queue",
+            "module": "latte_class",
+            "namespace": "Queue"
+        },
+        {
+            "file": "src/queue/index.ts",
+            "line": 21,
+            "desc": "获得队列里对象个数",
+            "itemtype": "method",
+            "name": "size",
+            "return": {
+                "description": "total",
+                "type": "Int"
+            },
+            "sync": "",
+            "example": [
+                "\n    var Queue =  require(\"latte_class\").Queue;\n    console.log(Queue);\n    var queue = new Queue();\n    log(queue.size()); //0 "
+            ],
+            "class": "Queue.Queue",
+            "module": "latte_class",
+            "namespace": "Queue"
+        },
+        {
+            "file": "src/queue/index.ts",
+            "line": 41,
+            "desc": "队列存入对象",
+            "itemtype": "method",
+            "name": "enqueue",
+            "params": [
+                {
+                    "name": "priority",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Any"
+                }
+            ],
+            "example": [
+                "\n    var Queue = require(\"latte_class\").Queue;\n    var q = new Queue(2);\n    q.enqueue(\"1\", 0);\n    q.enqueue(\"2\", 1);\n    q.enqueue(\"3\",0);\n    log(q.size());//3\n    log(q.dequeue());//1\n    log(q.dequeue());//3\n    log(q.dequeue());//2"
+            ],
+            "class": "Queue.Queue",
+            "module": "latte_class",
+            "namespace": "Queue"
+        },
+        {
+            "file": "src/queue/index.ts",
+            "line": 69,
+            "desc": "从队列里取出对象",
+            "itemtype": "method",
+            "name": "dequeue",
+            "return": {
+                "description": "obj",
+                "type": "Any"
+            },
+            "example": [
+                "\n    var Queue = require(\"latte_class\").queue;\n    var q = new Queue();\n    var one = q.dequeue();\n    log(one); //null\n    q.enqueue(\"1\");\n    var two = q.dequeue();\n    log(two); // 1\n"
+            ],
+            "class": "Queue.Queue",
+            "module": "latte_class",
+            "namespace": "Queue"
+        },
+        {
+            "file": "src/removeIdle/index.ts",
+            "line": 42,
+            "description": "//不建议使用availableObjects对象push  这里只是举例子\n\t \t重新启动扫描空闲对象以及定时删除功能",
+            "itemtype": "method",
+            "name": "scheduledRemoveIdle",
+            "example": [
+                "\n\tvar RemoveIdle = require(\"latte_class\").removeIdle;\n\tvar r = new RemoveIdle({\n\t\t\t\tidleTimeoutMillis: 1000\n\t});\n\tsetTimeout(function(){\n\t\t\tr.availableObjects.push({\n\t\t\t\t\ttimeout: Date.now()-1,\n\t\t\t\t\tobj: \"1\"\n\t\t\t});\n\t\t\tsetTimeout(function() {\n\t\t\t\t\tlog(\"one\", r.size());//one,1\n\t\t\t\t\tr.scheduleRemoveIdle();\n\t\t\t\t\tlog(\"two\",r.size());//two,1\n\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t\tlog(\"three\", r.size());//three,0\n\t\t\t\t\t},1000);\n\t\t\t}, 2000);\n\t}, 2000);"
+            ],
+            "class": "RemoveIdle.RemoveIdle",
+            "module": "latte_class",
+            "namespace": "RemoveIdle"
+        },
+        {
+            "file": "src/removeIdle/index.ts",
+            "line": 72,
+            "description": "强制扫描一遍空闲对象并删除",
+            "async": 1,
+            "itemtype": "method",
+            "name": "removeIdle",
+            "example": [
+                "\n\n\tvar RemoveIdle = require(\"latte_class\").removeIdle;\n\tvar r = new RemoveIdle({\n\t\t\t\tidleTimeoutMillis: 1000\n\t});\n\t//sleep 2000ms\n\t//when r.availableObjects.length == 0  then close autoClean;\n\tsetTimeout(function(){\n\t\t\tr.availableObjects.push({\n\t\t\t\t\ttimeout: Date.now()-1,\n\t\t\t\t\tobj: \"1\"\n\t\t\t});\n\t\t\tsetTimeout(function() {\n\t\t\t\t\tlog(\"one\", r.size());//one,1\n\t\t\t\t\tr.removeIdle();\n\t\t\t\t\tlog(\"two\",r.size());//two,0\n\t\t\t}, 2000);\n\t}, 2000);\n"
+            ],
+            "class": "RemoveIdle.RemoveIdle",
+            "module": "latte_class",
+            "namespace": "RemoveIdle"
+        },
+        {
+            "file": "src/removeIdle/index.ts",
+            "line": 114,
+            "desc": "释放一个对象",
+            "itemtype": "method",
+            "name": "destroy",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Any"
+                }
+            ],
+            "example": [
+                "\n\t\t\tvar RemoveIdle = require(\"latte_class\").removeIdle;\n\t\t\tvar r = new RemoveIdle({\n\t\t\t\t\t\tidleTimeoutMillis: 2000\n\t\t\t});\n\t\t\tsetTimeout(function(){\n\t\t\t\t\tr.availableObjects.push({\n\t\t\t\t\t\t\ttimeout: Date.now()-1,\n\t\t\t\t\t\t\tobj: \"1\"\n\t\t\t\t\t});\n\t\t\t\t\tsetTimeout(function() {\n\t\t\t\t\t\t\tlog(\"one\", r.size());//one,1\n\t\t\t\t\t\t\tr.destroy(r.availableObjects[0].obj);\n\t\t\t\t\t\t\tlog(\"two\",r.size());//two,0\n\t\t\t\t\t}, 2000);\n\t\t\t}, 2000);"
+            ],
+            "class": "RemoveIdle.RemoveIdle",
+            "module": "latte_class",
+            "namespace": "RemoveIdle"
+        },
+        {
+            "file": "src/removeIdle/index.ts",
+            "line": 140,
+            "desc": "内部清理所有值为obj",
+            "itemtype": "method",
+            "name": "getIdle",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Any"
+                }
+            ],
+            "class": "RemoveIdle.RemoveIdle",
+            "module": "latte_class",
+            "namespace": "RemoveIdle"
+        },
+        {
+            "file": "src/removeIdle/index.ts",
+            "line": 150,
+            "itemtype": "method",
+            "name": "size",
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "example": [
+                "\n\tvar RemoveIdle = require(\"latte_class\").removeIdle;\n\tvar r = new RemoveIdle({\n\t\t\t\tidleTimeoutMillis: 1000\n\t});\n\tlog(r.size());//0"
+            ],
+            "class": "RemoveIdle.RemoveIdle",
+            "module": "latte_class",
+            "namespace": "RemoveIdle"
+        },
+        {
+            "file": "src/removeIdle/index.ts",
+            "line": 163,
+            "desc": "更新",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n\n\t\t\tvar RemoveIdle = require(\"latte_class\").removeIdle;\n\t\t\tvar r = new RemoveIdle({\n\t\t\t\t\t\tidleTimeoutMillis: 1000\n\t\t\t});\n\t\t\tvar obj = {\n\t\t\t\t\ttimeout: Date.now()-1,\n\t\t\t\t\tobj: \"1\"\n\t\t\t};\n\t\t\tsetTimeout(function(){\n\n\t\t\t\t\tr.availableObjects.push(obj);\n\t\t\t\t\tsetTimeout(function() {\n\t\t\t\t\t\t\tlog(\"one\", r.size());//one,1\n\t\t\t\t\t\t\tr.update(obj.obj);\n\t\t\t\t\t\t\tr.removeIdle();\n\t\t\t\t\t\t\tlog(\"two\",r.size());//two,1\n\t\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t\t\t\tlog(\"three\", r.availableObjects.length);//three,0\n\t\t\t\t\t\t\t},1000);\n\t\t\t\t\t}, 2000);\n\t\t\t}, 1000);\n"
+            ],
+            "class": "RemoveIdle.RemoveIdle",
+            "module": "latte_class",
+            "namespace": "RemoveIdle"
+        },
+        {
+            "file": "src/removeIdle/index.ts",
+            "line": 199,
+            "desc": "添加一个对象",
+            "itemtype": "method",
+            "name": "release",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n\tvar RemoveIdle = require(\"latte_class\").removeIdle;\n\tvar r = new RemoveIdle({\n\t\tidleTimeoutMillis: 1000\n\t});\n\tr.release(\"1\");\n\tlog(r.size());//1\n\tsetTimeout(function(){\n\t\tlog(r.size());//0\n\t}, 1000);"
+            ],
+            "class": "RemoveIdle.RemoveIdle",
+            "module": "latte_class",
+            "namespace": "RemoveIdle"
+        },
+        {
+            "file": "src/removeIdle/index.ts",
+            "line": 236,
+            "desc": "释放所有对象",
+            "itemtype": "method",
+            "name": "destroyAllNow",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n\t\t\tvar RemoveIdle = require(\"latte_class\").removeIdle;\n\t\t\tvar r = new RemoveIdle({\n\t\t\t\t\t\tidleTimeoutMillis: 1000\n\t\t\t});\n\n\t\t\tr.availableObjects.push({\n\t\t\t\t\ttimeout: Date.now()+ 60 * 60 * 1000,\n\t\t\t\t\tobj: \"1\"\n\t\t\t});\n\t\t\tsetTimeout(function() {\n\t\t\t\t\tlog(\"one\", r.size());//one,1\n\t\t\t\t\tr.destroyAllNow();\n\t\t\t\t\tlog(\"two\",r.size());//two,0\n\t\t\t}, 2000);\n"
+            ],
+            "class": "RemoveIdle.RemoveIdle",
+            "module": "latte_class",
+            "namespace": "RemoveIdle"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: desc",
+            "line": " src/fileObject/index.ts:8"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/fileObject/index.ts:82"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/fileObject/index.ts:108"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/fileObject/index.ts:122"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/fileObject/index.ts:137"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/fileObject/index.ts:150"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/fileObject/index.ts:162"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/queue/index.ts:21"
+        },
+        {
+            "message": "unknown tag: sync",
+            "line": " src/queue/index.ts:21"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/queue/index.ts:41"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/queue/index.ts:69"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/removeIdle/index.ts:114"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/removeIdle/index.ts:140"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/removeIdle/index.ts:163"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/removeIdle/index.ts:199"
+        },
+        {
+            "message": "unknown tag: desc",
+            "line": " src/removeIdle/index.ts:236"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/fileObject/index.ts:71"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/fileObject/index.ts:82"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/fileObject/index.ts:108"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/queue/index.ts:10"
+        }
+    ]
+}

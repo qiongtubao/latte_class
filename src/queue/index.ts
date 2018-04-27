@@ -5,9 +5,13 @@
 */
 export default class Queue {
     private _size: number;
-    slots: Array<Array<any>>;
+    slots: any[][];
     total: number;
-    constructor(size) {
+    /**
+     * @constructor
+     * @param {number} size 
+     */
+    constructor(size?) {
         this._size = Math.max(+size | 0, 1);
         this.slots = [];
         for (var i = 0; i < this._size; i++) {
@@ -18,7 +22,7 @@ export default class Queue {
      *  @desc 获得队列里对象个数
      *  @method size
      *  @return {Int} total
-     *  @async
+     *  @sync
      *  @example
      *      var Queue =  require("latte_class").Queue;
      *      console.log(Queue);

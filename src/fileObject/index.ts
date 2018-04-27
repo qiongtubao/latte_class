@@ -1,20 +1,77 @@
-let latte_lib = require('latte_lib')
+import latte_lib from 'latte_lib'
 let Fs = latte_lib.fs;
+/**
+    @module latte_class
+    @namespace FileObject
+ */
 
-
-interface Config {
+/**
+    @desc FileObject的配置对象
+    @class Config 
+    @interface
+    @property  filePath
+    @property  defaultData
+ */
+export interface Config {
+    /**
+     @description 字符串转对象方法
+     @property {Function} parse
+     */
     parse?: Function;
+    /**
+     @description 对象转字符串方法
+     @property {Function} stringify
+     */
     stringify?: Function;
+    /**
+     @description 文件路径
+     @property {string} filePath
+     */
     filePath: string;
+    /**
+     @description 默认数据
+     @property {any} defaultData
+     */
     defaultData?: any;
 }
-
+/**
+    @class FileObject
+ */
 export default class FileObject {
-    filePath: string;
-    parse: Function;
-    stringify: Function;
-    data: any;
-    defaultData: any;
+    /**
+        @description 文件路径
+        @property {string} filePath
+        @private
+     */
+    private filePath: string;
+    /**
+        @description 字符串转对象方法
+        @property {Function} parse
+        @private
+     */
+    private parse: Function;
+    /**
+        @description 对象转字符串方法
+        @property {Function} stringify
+        @private
+    */
+    private stringify: Function;
+    /**
+        @description 数据对象
+        @property {any} data
+        @private
+     */
+    private data: any;
+    /**
+       @description 数据对象
+       @property {any} defaultData
+       @private
+    */
+    private defaultData: any;
+    /**
+     * @constructor
+     * @param config 
+     */
     constructor(config: Config) {
         this.parse = config.parse || JSON.parse.bind(JSON);
         this.stringify = config.stringify || JSON.stringify.bind(JSON);
@@ -64,6 +121,7 @@ export default class FileObject {
     }
     /**
      * @desc 设置数据
+     * @method set
      * @param {string} key 
      * @param {any} value 
      * @example
@@ -78,6 +136,7 @@ export default class FileObject {
     }
     /**
      * @desc 通过key获取数据
+     * @method get
      * @param key 
      * @return {any}
      *      let fo = require('latte_class').fileObject.create({
@@ -90,6 +149,7 @@ export default class FileObject {
     }
     /**
      * @desc 关闭
+     * @method close
      * @example
      *      let fo = require('latte_class').fileObject.create({
      *          filePath: "./{{file-path}}"
@@ -100,8 +160,10 @@ export default class FileObject {
 
     }
     /**
-     * 
-     * @param config 
+     *  
+     * @method create
+     * @param {FileObject.Config} config
+     * @returns {FileObject.fileObject} 
      * @static
      * @example
      *      let fo = require('latte_class').fileObject.create({

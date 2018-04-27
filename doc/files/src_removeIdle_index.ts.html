@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/removeIdle/index.ts - Project</title>
+  
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-smart" _assetsPath="../assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="https://github.com/qiongtubao/latte_class">
+            <img alt="Project" src="../assets/css/logo.png" title="Project">
+                Project
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/qiongtubao/latte_class">Home</a>
+                    </li>
+                    <li><a href="https://github.com/qiongtubao/latte_class">Document</a>
+                    </li>
+                    <li><a href="https://github.com/qiongtubao/latte_class">About</a>
+                    </li>
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar">
+        <h3>Modules/Classes</h3>
+            <div id="api-tabview-filter">
+                <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+            </div>
+            <dl id="sidebar_list">
+                    <dt>
+                        <span class="glyphicon glyphicon-minus"></span>
+                        <a href="../modules/latte_class.html">latte_class</a>
+                    </dt>
+                    <dd>
+                        <ul>
+                           <li>
+                               <a href="../classes/FileObject.Config.html">FileObject.Config</a>
+                               <ul>
+                               </ul>
+                           </li>
+                           <li>
+                               <a href="../classes/FileObject.FileObject.html">FileObject.FileObject</a>
+                               <ul>
+                               </ul>
+                           </li>
+                           <li>
+                               <a href="../classes/Queue.Queue.html">Queue.Queue</a>
+                               <ul>
+                               </ul>
+                           </li>
+                           <li>
+                               <a href="../classes/RemoveIdle.RemoveIdle.html">RemoveIdle.RemoveIdle</a>
+                               <ul>
+                               </ul>
+                           </li>
+                        </ul>
+                    </dd>
+            </dl>
+    </div>
+           <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                    <div class="page-header">
+                        <h1>src/removeIdle/index.ts <small>File</small></h1>
+                    </div>
+                    
+                    <div class="file">
+                        <pre class="prettyprint linenums" id='src_code'>
+                    export interface AvailableObject {
+                    	obj: any;
+                    	timeout: number;
+                    };
+                    /**
+                        @module latte_class
+                        @namespace RemoveIdle
+                        @class RemoveIdle
+                    */
+                    export default class RemoveIdle {
+                    	reapIntervalMillis: number;
+                    	idleTimeoutMillis: number;
+                    	refreshIdle: boolean;
+                    	returnToHead: boolean;
+                    	min: number;
+                    	max: number;
+                    	availableObjects: Array&lt;AvailableObject&gt;;
+                    	private _destroy: Function;
+                    	private _create: Function;
+                    	log: any;
+                    	removeIdleScheduled: boolean;
+                    	removeIdleTimer: number;
+                    	removeConditions: Function;
+                    	ensureMinimum: Function; //清理完成之后 执行此方法 比如连接池释放掉 需要确保最低连接数 可能会创建新的连接对象
+                    	dispense: Function; //当创建或者有对象归还时,重新发放对象事件
+                    	constructor(config) {
+                    		this.reapIntervalMillis = config.reapIntervalMillis || 1000;
+                    		this.idleTimeoutMillis = config.idleTimeoutMillis || 10000;
+                    		this.refreshIdle = config.refreshIdle || true;
+                    		this.returnToHead = config.returnToHead || false;
+                    		this.scheduleRemoveIdle();
+                    		this.min = config.min || 0;
+                    		this.max = config.max || 1000;
+                    		this.availableObjects = [];
+                    		this._destroy = config.destroy || function () { };
+                    		this._create = config.create;
+                    		this.log = config.log || function () { };
+                    		this.removeConditions = config.removeConditions || function () { return true; }
+                    		this.ensureMinimum = config.ensureMinimum || function () { }
+                    		this.dispense = config.dispense || function () { }
+                    	};
+                    	/**
+                    		//不建议使用availableObjects对象push  这里只是举例子
+                    	 	重新启动扫描空闲对象以及定时删除功能
+                    		@method scheduledRemoveIdle
+                    		@example
+                    			var RemoveIdle = require(&quot;latte_class&quot;).removeIdle;
+                    			var r = new RemoveIdle({
+                    						idleTimeoutMillis: 1000
+                    			});
+                    			setTimeout(function(){
+                    					r.availableObjects.push({
+                    							timeout: Date.now()-1,
+                    							obj: &quot;1&quot;
+                    					});
+                    					setTimeout(function() {
+                    							log(&quot;one&quot;, r.size());//one,1
+                    							r.scheduleRemoveIdle();
+                    							log(&quot;two&quot;,r.size());//two,1
+                    							setTimeout(function(){
+                    										log(&quot;three&quot;, r.size());//three,0
+                    							},1000);
+                    					}, 2000);
+                    			}, 2000);
+                    	*/
+                    	scheduleRemoveIdle() {
+                    		if (!this.removeIdleScheduled) {
+                    			this.removeIdleScheduled = true;
+                    			this.removeIdleTimer = setTimeout(this.removeIdle.bind(this), this.reapIntervalMillis);
+                    		}
+                    	}
+                    	/**
+                    		强制扫描一遍空闲对象并删除  
+                    		@async
+                    		@method removeIdle
+                    		@example
+                    
+                    			var RemoveIdle = require(&quot;latte_class&quot;).removeIdle;
+                    			var r = new RemoveIdle({
+                    						idleTimeoutMillis: 1000
+                    			});
+                    			//sleep 2000ms
+                    			//when r.availableObjects.length == 0  then close autoClean;
+                    			setTimeout(function(){
+                    					r.availableObjects.push({
+                    							timeout: Date.now()-1,
+                    							obj: &quot;1&quot;
+                    					});
+                    					setTimeout(function() {
+                    							log(&quot;one&quot;, r.size());//one,1
+                    							r.removeIdle();
+                    							log(&quot;two&quot;,r.size());//two,0
+                    					}, 2000);
+                    			}, 2000);
+                    
+                    	*/
+                    	removeIdle() {
+                    		let toRemove = [], now = new Date().getTime(),
+                    			self = this;
+                    		this.removeIdleScheduled = false;
+                    		for (let i = 0, len = this.availableObjects.length; (i &lt; len &amp;&amp; this.removeConditions()); i++) {
+                    			let timeout = this.availableObjects[i].timeout;
+                    			if (now &gt; timeout) {
+                    				toRemove.push(this.availableObjects[i].obj);
+                    			}
+                    		}
+                    		for (var i = 0, len = toRemove.length; i &lt; len; i++) {
+                    			self.destroy(toRemove[i]);
+                    		}
+                    		if (this.availableObjects.length &gt; 0) {
+                    			this.scheduleRemoveIdle();
+                    		}
+                    	}
+                    	/**
+                    	 * @desc 释放一个对象
+                    		@method destroy
+                    		@param {any} obj
+                    		@example
+                    			var RemoveIdle = require(&quot;latte_class&quot;).removeIdle;
+                    			var r = new RemoveIdle({
+                    						idleTimeoutMillis: 2000
+                    			});
+                    			setTimeout(function(){
+                    					r.availableObjects.push({
+                    							timeout: Date.now()-1,
+                    							obj: &quot;1&quot;
+                    					});
+                    					setTimeout(function() {
+                    							log(&quot;one&quot;, r.size());//one,1
+                    							r.destroy(r.availableObjects[0].obj);
+                    							log(&quot;two&quot;,r.size());//two,0
+                    					}, 2000);
+                    			}, 2000);
+                    	*/
+                    	destroy(obj) {
+                    		this.getIdle(obj);
+                    		this._destroy(obj);
+                    		this.ensureMinimum();
+                    	}
+                    	/**
+                    	 * @desc 内部清理所有值为obj 
+                    		@method getIdle
+                    		@param {any} obj
+                    	*/
+                    	private getIdle(obj) {
+                    		this.availableObjects = this.availableObjects.filter(function (objWithTimeout) {
+                    			return (objWithTimeout.obj !== obj);
+                    		});
+                    	}
+                    	/**
+                    		@method size
+                    		@return {number}
+                    		@example
+                    			var RemoveIdle = require(&quot;latte_class&quot;).removeIdle;
+                    			var r = new RemoveIdle({
+                    						idleTimeoutMillis: 1000
+                    			});
+                    			log(r.size());//0
+                    	*/
+                    	size() {
+                    		return this.availableObjects.length;
+                    	}
+                    	/**
+                    	 * @desc 更新
+                    		@method update
+                    		@param {Object} obj
+                    		@example
+                    
+                    			var RemoveIdle = require(&quot;latte_class&quot;).removeIdle;
+                    			var r = new RemoveIdle({
+                    						idleTimeoutMillis: 1000
+                    			});
+                    			var obj = {
+                    					timeout: Date.now()-1,
+                    					obj: &quot;1&quot;
+                    			};
+                    			setTimeout(function(){
+                    
+                    					r.availableObjects.push(obj);
+                    					setTimeout(function() {
+                    							log(&quot;one&quot;, r.size());//one,1
+                    							r.update(obj.obj);
+                    							r.removeIdle();
+                    							log(&quot;two&quot;,r.size());//two,1
+                    							setTimeout(function(){
+                    										log(&quot;three&quot;, r.availableObjects.length);//three,0
+                    							},1000);
+                    					}, 2000);
+                    			}, 1000);
+                    
+                    	*/
+                    	update(obj) {
+                    		for (let i = 0, len = this.availableObjects.length; (i &lt; len &amp;&amp; this.removeConditions()); i++) {
+                    			if (obj == this.availableObjects[i].obj) {
+                    				this.availableObjects[i].timeout = new Date().getTime() + this.idleTimeoutMillis;
+                    			}
+                    		}
+                    	}
+                    	/**
+                    		@desc 添加一个对象
+                    		@method release
+                    		@param {Object} obj
+                    		@public
+                    		@example
+                    			var RemoveIdle = require(&quot;latte_class&quot;).removeIdle;
+                    			var r = new RemoveIdle({
+                    				idleTimeoutMillis: 1000
+                    			});
+                    			r.release(&quot;1&quot;);
+                    			log(r.size());//1
+                    			setTimeout(function(){
+                    				log(r.size());//0
+                    			}, 1000);
+                    	*/
+                    	release(obj) {
+                    		if (this.availableObjects.some(function (objWithTimeout) {
+                    			if (objWithTimeout.obj === obj) {
+                    				//续时
+                    				objWithTimeout.timeout = new Date().getTime() + this.idleTimeoutMillis;
+                    				return true;
+                    			}
+                    		})) {
+                    			this.log &amp;&amp; this.log.error(&quot;called twice for the same resource&quot;)
+                    			//刷新
+                    			return;
+                    		};
+                    		var objWithTimeout = { obj: obj, timeout: (new Date().getTime() + this.idleTimeoutMillis) }
+                    		if (this.returnToHead) {
+                    			this.availableObjects.splice(0, 0, objWithTimeout);
+                    		} else {
+                    			this.availableObjects.push(objWithTimeout);
+                    		}
+                    		this.dispense();
+                    		this.scheduleRemoveIdle();
+                    	}
+                    	/**
+                    	 * @desc  释放所有对象
+                    		@method destroyAllNow
+                    		@param {Function} callback
+                    		@example
+                    			var RemoveIdle = require(&quot;latte_class&quot;).removeIdle;
+                    			var r = new RemoveIdle({
+                    						idleTimeoutMillis: 1000
+                    			});
+                    
+                    			r.availableObjects.push({
+                    					timeout: Date.now()+ 60 * 60 * 1000,
+                    					obj: &quot;1&quot;
+                    			});
+                    			setTimeout(function() {
+                    					log(&quot;one&quot;, r.size());//one,1
+                    					r.destroyAllNow();
+                    					log(&quot;two&quot;,r.size());//two,0
+                    			}, 2000);
+                    
+                    	*/
+                    	destroyAllNow(callback) {
+                    		var willDie = this.availableObjects;
+                    		this.availableObjects = [];
+                    		var obj = willDie.shift();
+                    		var self = this;
+                    		while (obj !== null &amp;&amp; obj !== undefined) {
+                    			self.destroy(obj.obj);
+                    			obj = willDie.shift();
+                    		}
+                    		this.removeIdleScheduled = false;
+                    		clearTimeout(this.removeIdleTimer);
+                    		callback &amp;&amp; callback();
+                    	}
+                    }
+                    
+                    
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<a id="gotoTop" class='well well-small' href='#'>
+    Top
+</a>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/doc.js"></script>
+</body>
+</html>
